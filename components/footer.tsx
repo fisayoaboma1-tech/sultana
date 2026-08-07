@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Phone, MessageCircle, Mail, Instagram, MapPin } from "lucide-react"
+import { Mail, MapPin, Briefcase, Building2, Users, Globe2 } from "lucide-react"
 
 export function Footer() {
   const ref = useRef(null)
@@ -61,29 +61,25 @@ export function Footer() {
           {/* Connect Section */}
           <div className="lg:col-span-1">
             <h4 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
-              <Phone className="w-4 h-4 text-cyan-500" />
+              <Mail className="w-4 h-4 text-cyan-500" />
               CONNECT
             </h4>
             <div className="space-y-3">
-              <a href="tel:+62318521230" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
-                <Phone className="w-4 h-4 text-slate-400" />
-                +62-031 8521230
+              <a href="mailto:marketing@pt-sultanagrolasteri.id" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
+                <Mail className="w-4 h-4" />
+                marketing@pt-sultanagrolasteri.id
               </a>
-              <a href="https://wa.me/6283186764833" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
-                <MessageCircle className="w-4 h-4 text-slate-400" />
-                +62 (831) 867-64833
+              <a href="mailto:ahmadbudi@pt-sultanagrolasteri.id" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
+                <Mail className="w-4 h-4" />
+                ahmadbudi@pt-sultanagrolasteri.id
               </a>
-              <a href="mailto:ptsultananalestari@gmail.com" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
-                <Mail className="w-4 h-4 text-slate-400" />
-                ptsultananalestari@gmail.com
+              <a href="mailto:eko_parasetayo@pt-sultanagrolasteri.id" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
+                <Mail className="w-4 h-4" />
+                eko_parasetayo@pt-sultanagrolasteri.id
               </a>
-              <a href="https://instagram.com/daawatindonesia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
-                <Mail className="w-4 h-4 text-slate-400" />
-                @daawatindonesia
-              </a>
-              <a href="https://instagram.com/antebella.id" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
-                <Mail className="w-4 h-4 text-slate-400" />
-                @antebella.id
+              <a href="mailto:irawanarif@pt-sultanagrolasteri.id" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
+                <Mail className="w-4 h-4" />
+                irawanarif@pt-sultanagrolasteri.id
               </a>
             </div>
           </div>

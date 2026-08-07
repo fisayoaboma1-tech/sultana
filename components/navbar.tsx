@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useState, useRef } from "react"
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
 import { Menu, X } from "lucide-react"
@@ -67,7 +68,7 @@ export function Navbar({ forceGlass = false, homepage = false }: { forceGlass?: 
           className="relative flex items-center justify-between px-5 md:px-6 border rounded-full transition-all duration-300 shadow-xl shadow-slate-950/10"
         >
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <motion.img
             src="https://res.cloudinary.com/qz5m8bhg/image/upload/v1785932694/sal-logo_jxjujr.png"
             alt="Pt sultanagrolasteri"
@@ -82,7 +83,7 @@ export function Navbar({ forceGlass = false, homepage = false }: { forceGlass?: 
               Pt sultanagrolasteri
             </span>
           </motion.span>
-        </a>
+        </Link>
 
         {/* Desktop Nav Items */}
         <div className="hidden md:flex items-center gap-3 relative">

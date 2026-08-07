@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
+import { motion } from "framer-motion"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { SmoothScroll } from "@/components/smooth-scroll"
@@ -27,7 +28,13 @@ export default function ContactPage() {
 
         <section className="pt-32 pb-20 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+              className="text-center mb-12"
+            >
               <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-700">
                 <Mail className="w-4 h-4" />
                 Contact
@@ -36,9 +43,15 @@ export default function ContactPage() {
               <p className="mt-4 max-w-2xl mx-auto text-sm sm:text-base text-slate-600 leading-relaxed">
                 Reach out for product inquiries, partnerships, or distribution opportunities.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="rounded-[1.5rem] bg-white border border-slate-200 p-8 shadow-xl shadow-slate-950/5">
+            <motion.div
+              initial={{ opacity: 0, y: 34 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] as const }}
+              className="rounded-[1.5rem] bg-white border border-slate-200 p-8 shadow-xl shadow-slate-950/5"
+            >
               <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <label className="flex flex-col">
@@ -98,7 +111,7 @@ export default function ContactPage() {
                   <p className="text-sm text-slate-500 mt-2 sm:mt-0">Or email us directly at <a className="text-cyan-700 underline" href="mailto:info@sultanaagro.co.id">info@sultanaagro.co.id</a></p>
                 </div>
               </form>
-            </div>
+            </motion.div>
           </div>
         </section>
 

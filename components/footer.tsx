@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Phone, MessageCircle, Mail, Instagram, MapPin } from "lucide-react"
@@ -20,10 +21,12 @@ export function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <img
+              <Image
                 src="https://res.cloudinary.com/qz5m8bhg/image/upload/v1785932694/sal-logo_jxjujr.png"
                 alt="PT. Sultana Agro Lestari"
-                className="w-12 h-12 rounded-full"
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded-full object-cover"
               />
               <h3 className="text-xl font-bold text-white">PT. SULTANA AGRO LESTARI</h3>
             </div>

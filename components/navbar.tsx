@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -17,30 +17,33 @@ export function Navbar({ forceGlass = false, homepage = false }: { forceGlass?: 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
   const { scrollY } = useScroll()
-  
+
+  // Homepage always renders with the "scrolled" glass look
+  const glassy = forceGlass || homepage
+
   const navBackground = useTransform(
     scrollY,
     [0, 80],
-    forceGlass
-      ? ["rgba(0, 0, 0, 0.98)", "rgba(0, 0, 0, 0.98)"]
+    glassy
+      ? ["rgba(2, 6, 23, 0.92)", "rgba(2, 6, 23, 0.92)"]
       : ["rgba(15, 23, 42, 0.0)", "rgba(15, 23, 42, 0.80)"]
   )
-  
-  const navBlur = useTransform(scrollY, [0, 80], forceGlass ? [18, 18] : [0, 18])
+
+  const navBlur = useTransform(scrollY, [0, 80], glassy ? [18, 18] : [0, 18])
   const navBorder = useTransform(
     scrollY,
     [0, 80],
-    forceGlass
-      ? ["rgba(255, 255, 255, 0.16)", "rgba(255, 255, 255, 0.16)"]
+    glassy
+      ? ["rgba(148, 163, 184, 0.18)", "rgba(148, 163, 184, 0.18)"]
       : ["rgba(148, 163, 184, 0)", "rgba(148, 163, 184, 0.18)"]
   )
-  const navPadding = useTransform(scrollY, [0, 80], forceGlass ? ["0.85rem", "0.85rem"] : ["1.6rem", "0.85rem"])
-  const navWidth = useTransform(scrollY, [0, 80], forceGlass ? ["96%", "96%"] : ["100%", "96%"])
-  const logoHeight = useTransform(scrollY, [0, 80], forceGlass ? ["2.1rem", "2.1rem"] : ["3rem", "2.1rem"])
+  const navPadding = useTransform(scrollY, [0, 80], glassy ? ["0.85rem", "0.85rem"] : ["1.6rem", "0.85rem"])
+  const navWidth = useTransform(scrollY, [0, 80], glassy ? ["96%", "96%"] : ["100%", "96%"])
+  const logoHeight = useTransform(scrollY, [0, 80], glassy ? ["2.1rem", "2.1rem"] : ["3rem", "2.1rem"])
   const navTextColor = useTransform(
     scrollY,
     [0, 80],
-    forceGlass || homepage ? ["#f8fafc", "#f8fafc"] : ["#0f172a", "#f8fafc"]
+    glassy ? ["#f8fafc", "#f8fafc"] : ["#0f172a", "#f8fafc"]
   )
 
   return (
@@ -71,8 +74,16 @@ export function Navbar({ forceGlass = false, homepage = false }: { forceGlass?: 
             style={{ height: logoHeight }}
             className="w-auto"
           />
-          <motion.span className="font-semibold hidden sm:block text-sm tracking-wide" style={{ color: navTextColor }}>
-            PT. SULTANA AGRO LESTARI
+          <motion.span
+            className="hidden md:block font-semibold text-[0.72rem] sm:text-[0.8rem] lg:text-sm tracking-[0.2em] uppercase"
+            style={{ color: navTextColor }}
+          >
+            <span className="block text-white/95 drop-shadow-[0_0_12px_rgba(255,255,255,0.18)]">
+              PT. SULTANA
+            </span>
+            <span className="block bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 bg-clip-text text-transparent font-bold tracking-[0.24em]">
+              AGRO LESTARI
+            </span>
           </motion.span>
         </a>
 
@@ -82,7 +93,7 @@ export function Navbar({ forceGlass = false, homepage = false }: { forceGlass?: 
             <motion.a
               key={item.label}
               href={item.href}
-              className="relative px-4 py-2 text-sm hover:text-blue-400 transition-colors font-medium"
+              className="relative px-3 py-2 text-[0.82rem] lg:text-sm hover:text-cyan-300 transition-colors font-medium"
               style={{ color: navTextColor }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -100,7 +111,7 @@ export function Navbar({ forceGlass = false, homepage = false }: { forceGlass?: 
           ))}
           <a
             href="/contact"
-            className="inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-400 transition-colors"
+            className="inline-flex items-center rounded-full bg-cyan-500 px-3.5 py-2 text-[0.8rem] lg:text-sm font-semibold text-white hover:bg-cyan-400 transition-colors"
           >
             Contact
           </a>

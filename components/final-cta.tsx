@@ -1,14 +1,10 @@
 "use client"
 
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { motion } from "framer-motion"
 import { Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function FinalCTA() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-
   return (
     <section className="relative py-24 px-4 overflow-hidden">
       {/* Background video aligned to right */}
@@ -23,10 +19,10 @@ export function FinalCTA() {
       <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent" />
 
       <motion.div
-        ref={ref}
         initial={{ opacity: 0, y: 40 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
         className="relative z-10 max-w-4xl mx-auto text-center"
       >
         <h2

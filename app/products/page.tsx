@@ -1,5 +1,7 @@
 "use client"
+import Image from "next/image"
 import { useState } from "react"
+import { motion } from "framer-motion"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { SmoothScroll } from "@/components/smooth-scroll"
@@ -114,7 +116,13 @@ export default function ProductsPage() {
 
         <section className="pt-32 pb-16 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+              className="text-center mb-12"
+            >
               <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-700">
                 <ShoppingBag className="w-4 h-4" />
                 Catalog
@@ -125,15 +133,24 @@ export default function ProductsPage() {
               <p className="mt-4 max-w-2xl mx-auto text-sm sm:text-base text-slate-600 leading-relaxed">
                 Explore our curated selection of high-quality food products sourced from trusted global suppliers.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {visibleProducts.map((product) => (
-                <div key={product.name} className="group rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl transition hover:-translate-y-1 hover:shadow-2xl">
+              {visibleProducts.map((product, index) => (
+                <motion.div
+                  key={product.name}
+                  initial={{ opacity: 0, y: 42 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
+                  className="group rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl transition hover:-translate-y-1 hover:shadow-2xl"
+                >
                   <div className="relative h-64 overflow-hidden bg-white">
-                    <img
+                    <Image
                       src={product.image}
                       alt={product.name}
+                      width={800}
+                      height={600}
                       className="h-full w-full object-contain object-center transition duration-500"
                     />
                   </div>
@@ -148,7 +165,7 @@ export default function ProductsPage() {
                     <h2 className="text-xl font-bold text-slate-900 mb-3">{product.name}</h2>
                     <p className="text-sm text-slate-600 leading-relaxed">{product.description}</p>
                   </div>
-                </div>
+                </motion.div>
                 ))}
             </div>
 

@@ -1,9 +1,11 @@
 "use client"
 
+import Image from "next/image"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Medal, Handshake } from "lucide-react"
+import { motion } from "framer-motion"
 
 const partnerLogos = [
   { name: "ASBA 7 STORE", image: "https://res.cloudinary.com/qz5m8bhg/image/upload/v1785951703/asba-7-store-logo-1781000044_gpons4.png" },
@@ -62,7 +64,13 @@ export default function About() {
         {/* Hero Section */}
         <section id="about" className="pt-32 pb-20 px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+              className="text-center mb-12"
+            >
               <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-700">
                 ESTABLISHED 2020
               </span>
@@ -72,11 +80,22 @@ export default function About() {
               <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
                 Premium Food Distributor Indonesia with trusted quality, global sourcing, and dependable service.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="rounded-[2rem] bg-white border border-slate-200 p-8 shadow-xl shadow-slate-950/5">
+            <motion.div
+              initial={{ opacity: 0, x: 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+              className="rounded-[2rem] bg-white border border-slate-200 p-8 shadow-xl shadow-slate-950/5"
+            >
               <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+                >
                   <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
                     "Supplying Excellence, Delivering Quality."
                   </h2>
@@ -91,41 +110,60 @@ export default function About() {
                       Our mission is to support businesses with dependable supply, exceptional service, and products that meet the expectations of modern consumers throughout Indonesia.
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="relative">
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.75, delay: 0.15, ease: [0.22, 1, 0.36, 1] as const }}
+                  className="relative"
+                >
                   <div className="rounded-3xl overflow-hidden shadow-2xl">
-                    <img
+                    <Image
                       src="https://res.cloudinary.com/qz5m8bhg/image/upload/v1785988905/office_bkzhiw.jpg"
                       alt="PT. Sultana Agro Lestari Building"
+                      width={1200}
+                      height={800}
                       className="w-full h-auto object-cover"
+                      priority
                     />
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
     
         {/* Certifications Section */}
         <section className="py-20 px-4 sm:px-6 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+              className="flex items-center justify-center gap-3 mb-12"
+            >
               <Medal className="w-8 h-8 text-black" />
               <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900">
                 Our Certifications
               </h2>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {certifications.map((cert, index) => (
-                <div 
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
                   className="bg-white border-2 border-slate-200 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
-                <div className="w-32 h-32 mb-4 flex items-center justify-center">
-                    <img 
-                      src={cert.image} 
+                  <div className="w-32 h-32 mb-4 flex items-center justify-center">
+                    <img
+                      src={cert.image}
                       alt={cert.name}
                       className="w-full h-full object-contain"
                     />
@@ -141,7 +179,7 @@ export default function About() {
                       {cert.code}
                     </span>
                   )}
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -150,31 +188,43 @@ export default function About() {
         {/* Trusted Partners Section */}
         <section className="py-20 px-4 sm:px-6 bg-zinc-50">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+              className="flex items-center justify-center gap-3 mb-12"
+            >
               <Handshake className="w-8 h-8 text-black" />
               <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900">
                 Our Trusted Partners
               </h2>
-            </div>
+            </motion.div>
 
             <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg">
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
                 {partnerLogos.map((partner, index) => (
-              <div 
-                key={index}
-                className="flex flex-col items-center justify-center p-4 rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300"
-              >
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.55, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] as const }}
+                    className="flex flex-col items-center justify-center p-4 rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300"
+                  >
                     <div className="w-full aspect-square flex items-center justify-center mb-3">
-                      <img 
-                        src={partner.image} 
+                      <Image
+                        src={partner.image}
                         alt={partner.name}
+                        width={160}
+                        height={160}
                         className="w-full h-full object-contain"
                       />
                     </div>
                     <span className="text-xs font-semibold text-slate-700 text-center leading-tight">
                       {partner.name}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>

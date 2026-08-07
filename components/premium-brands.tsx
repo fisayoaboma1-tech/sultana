@@ -1,12 +1,11 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
-import { motion, useInView } from "framer-motion"
-import { useRef, useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
 
 export function PremiumBrands() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [flipped, setFlipped] = useState(false)
 
   const brands = [
@@ -32,12 +31,13 @@ export function PremiumBrands() {
   }, [])
 
   return (
-    <section ref={ref} className="py-24 px-4">
+    <section className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-4">
@@ -57,9 +57,10 @@ export function PremiumBrands() {
             return (
               <motion.div
                 key={brand.name}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] as const }}
                 className="relative group rounded-3xl overflow-hidden aspect-[16/9] shadow-2xl"
                 style={{ perspective: 1000 }}
               >
@@ -71,10 +72,13 @@ export function PremiumBrands() {
                 >
                   {/* Front Side - Shows current brand */}
                   <div className="absolute inset-0 backface-hidden">
-                    <img
+                    <Image
                       src={brand.image}
                       alt={brand.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                      priority={index === 0}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                     
@@ -97,10 +101,12 @@ export function PremiumBrands() {
                     className="absolute inset-0 backface-hidden"
                     style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
                   >
-                    <img
+                    <Image
                       src={otherBrand.image}
                       alt={otherBrand.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                     

@@ -1,3 +1,6 @@
+"use client"
+
+import { motion } from "framer-motion"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { SmoothScroll } from "@/components/smooth-scroll"
@@ -29,7 +32,13 @@ export default function UpdatesPage() {
 
         <section className="pt-32 pb-16 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+              className="text-center mb-12"
+            >
               <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-700">
                 <Newspaper className="w-4 h-4" />
                 Company Updates
@@ -40,12 +49,19 @@ export default function UpdatesPage() {
               <p className="mt-4 max-w-2xl mx-auto text-sm sm:text-base text-slate-600 leading-relaxed">
                 Latest news and announcements from PT. Sultana Agro Lestari.
               </p>
-            </div>
+            </motion.div>
 
             <div className="rounded-[2rem] bg-white p-8 shadow-xl shadow-slate-950/5 border border-slate-200">
               <div className="grid gap-6 lg:grid-cols-3">
-                {updates.map((update) => (
-                  <div key={update.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 hover:border-cyan-300 transition">
+                {updates.map((update, index) => (
+                  <motion.div
+                    key={update.title}
+                    initial={{ opacity: 0, y: 36 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+                    className="rounded-3xl border border-slate-200 bg-slate-50 p-6 hover:border-cyan-300 transition"
+                  >
                     <div className="flex items-center gap-3 mb-5 text-cyan-700">
                       <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100">
                         <Bell className="h-6 w-6" />
@@ -56,11 +72,17 @@ export default function UpdatesPage() {
                       </div>
                     </div>
                     <p className="text-sm leading-relaxed text-slate-600">{update.summary}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
-              <div className="mt-12 rounded-3xl bg-slate-950 p-8 text-white">
+              <motion.div
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] as const }}
+                className="mt-12 rounded-3xl bg-slate-950 p-8 text-white"
+              >
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm uppercase tracking-[0.3em] text-cyan-300 font-semibold">Stay informed</p>
@@ -71,7 +93,7 @@ export default function UpdatesPage() {
                     Updated regularly
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>

@@ -18,10 +18,10 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
-    },
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
   },
 }
 
@@ -127,10 +127,7 @@ export function BentoGrid() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-4"
-            style={{ fontFamily: "var(--font-instrument-sans)" }}
-          >
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Everything you need to ship
           </h2>
           <p className="text-zinc-400 max-w-2xl mx-auto">
@@ -163,9 +160,14 @@ export function BentoGrid() {
               <SystemStatus />
             </div>
             <div className="grid grid-cols-4 gap-4">
-              {["CPU", "Memory", "Network", "Storage"].map((metric) => (
+              {[
+                { metric: "CPU", value: 72 },
+                { metric: "Memory", value: 64 },
+                { metric: "Network", value: 88 },
+                { metric: "Storage", value: 45 },
+              ].map(({ metric, value }) => (
                 <div key={metric} className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">{Math.floor(Math.random() * 40 + 60)}%</div>
+                  <div className="text-2xl font-bold text-white mb-1">{value}%</div>
                   <div className="text-xs text-zinc-500">{metric}</div>
                 </div>
               ))}

@@ -1,135 +1,92 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
-
-const avatars = [
-  "/professional-headshot-1.png",
-  "/professional-headshot-2.png",
-  "/professional-headshot-3.png",
-  "/professional-headshot-4.png",
-  "/professional-headshot-5.png",
-]
-
-const textRevealVariants = {
-  hidden: { y: "100%" },
-  visible: (i: number) => ({
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
-      delay: i * 0.1,
-    },
-  }),
-}
+import { ShoppingBag, Info } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950 to-zinc-900 pointer-events-none" />
+    <section id="home" className="relative mt-14 min-h-screen flex items-center overflow-hidden">
+      {/* Background gradient + hero video */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pointer-events-none" />
+      <video
+        src="https://res.cloudinary.com/qz5m8bhg/video/upload/v1785941303/tadaa_bln0ev.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute top-0 left-0 right-0 h-1/2 w-full object-cover opacity-35 md:inset-0 md:h-full md:w-full"
+      />
+      <div className="absolute inset-0 bg-slate-950/40" />
+      <div className="absolute -left-24 top-24 w-72 h-72 rounded-full bg-slate-600/20 blur-3xl" />
+      <div className="absolute right-0 top-16 w-56 h-56 rounded-full bg-slate-500/20 blur-3xl" />
 
-      {/* Subtle radial glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-zinc-800/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Text content */}
+          <div className="space-y-8">
+            {/* Headline */}
+            <h1 className="font-bold leading-tight tracking-tight">
+              <span className="block text-white text-[4.5rem] sm:text-[5.5rem] md:text-[6.5rem]">Supplying Excellence,</span>
+              <span className="block text-sky-400 text-[3rem] sm:text-[3.5rem] md:text-[4rem]">Delivering</span>
+              <span className="block text-sky-400 text-[3rem] sm:text-[3.5rem] md:text-[4rem]">Quality</span>
+            </h1>
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 mb-8"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-500 pulse-glow" />
-          <span className="text-sm text-zinc-400">Now in Public Beta</span>
-        </motion.div>
+            <div className="bg-slate-800/55 backdrop-blur-2xl border border-slate-600/60 rounded-[2rem] p-8 max-w-xl shadow-[0_30px_80px_-30px_rgba(15,23,42,0.55)]">
+              <p className="text-slate-200 text-base leading-relaxed sm:text-lg">
+                We are a trusted importer and distributor of high-quality food products in Jakarta, Indonesia. Specializing in premium Basmati Rice and Spread Creams from trusted global suppliers.
+              </p>
+            </div>
 
-        {/* Headline with text mask animation */}
-        <h1
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6"
-          style={{ fontFamily: "var(--font-cal-sans), sans-serif" }}
-        >
-          <span className="block overflow-hidden">
-            <motion.span className="block" variants={textRevealVariants} initial="hidden" animate="visible" custom={0}>
-              Ship faster.
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden">
-            <motion.span
-              className="block text-zinc-500"
-              variants={textRevealVariants}
-              initial="hidden"
-              animate="visible"
-              custom={1}
-            >
-              Scale smarter.
-            </motion.span>
-          </span>
-        </h1>
-
-        {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          The modern platform for teams who ship fast. Built for scale, designed for speed. Everything you need to
-          build, deploy, and grow.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-        >
-          <Button
-            size="lg"
-            className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium shadow-lg shadow-white/10"
-          >
-            Start Building
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full px-8 h-12 text-base font-medium border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white hover:border-zinc-700 bg-transparent"
-          >
-            View Demo
-          </Button>
-        </motion.div>
-
-        {/* Social Proof */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="flex flex-col items-center gap-4"
-        >
-          <div className="flex items-center -space-x-3">
-            {avatars.map((avatar, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.5, x: -20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-                className="relative"
-              >
-                <img
-                  src={avatar || "/placeholder.svg"}
-                  alt=""
-                  className="w-10 h-10 rounded-full border-2 border-zinc-950 object-cover"
-                />
-              </motion.div>
-            ))}
+            {/* CTA Buttons */}
+            <div className="flex flex-row gap-4 max-w-xl items-center">
+              <Button asChild size="lg" className="w-auto text-white rounded-full px-16 py-6 text-xl font-semibold shadow-lg shadow-slate-950/20" style={{ backgroundColor: 'oklch(71.5% 0.143 215.221)' }}>
+                <Link href="/products" className="inline-flex items-center gap-3">
+                  <ShoppingBag className="w-5 h-5" />
+                  View Products
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="w-auto border !border-slate-700 text-white hover:bg-white/10 hover:border-cyan-300 rounded-full px-16 py-6 text-xl font-semibold bg-transparent shadow-lg shadow-slate-950/10">
+                <Link href="/about" className="inline-flex items-center gap-3">
+                  <Info className="w-5 h-5" />
+                  About Us
+                </Link>
+              </Button>
+            </div>
           </div>
-          <p className="text-sm text-zinc-500">
-            Trusted by <span className="text-zinc-300 font-medium">2,000+</span> teams worldwide
-          </p>
-        </motion.div>
+
+          {/* Right side - Logo */}
+          <div className="flex items-center justify-center lg:justify-end">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.84, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              className="relative overflow-hidden rounded-[2.5rem] bg-slate-900/60 border border-slate-700/75 shadow-2xl shadow-slate-950/40 w-full max-w-lg h-[36rem]"
+            >
+              {/* Background video behind logo */}
+              <video
+                src="https://res.cloudinary.com/qz5m8bhg/video/upload/v1785949526/gafa_fffatq.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover opacity-40"
+              />
+              <div className="absolute inset-0 bg-slate-900/40" />
+              
+              <div className="relative z-10 flex items-center justify-center h-full p-10">
+                <img
+                  src="https://res.cloudinary.com/qz5m8bhg/image/upload/v1785932694/sal-logo_jxjujr.png"
+                  alt="PT. Sultana Agro Lestari"
+                  className="relative w-full max-w-sm h-auto"
+                />
+              </div>
+              <div className="pointer-events-none absolute -left-10 -top-10 h-24 w-24 rounded-full bg-slate-600/30 blur-2xl" />
+              <div className="pointer-events-none absolute -right-10 bottom-8 h-20 w-20 rounded-full bg-slate-500/30 blur-2xl" />
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )

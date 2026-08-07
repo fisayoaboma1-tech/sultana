@@ -69,18 +69,6 @@ export function Footer() {
                 <Mail className="w-4 h-4" />
                 marketing@pt-sultanagrolasteri.id
               </a>
-              <a href="mailto:ahmadbudi@pt-sultanagrolasteri.id" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
-                <Mail className="w-4 h-4" />
-                ahmadbudi@pt-sultanagrolasteri.id
-              </a>
-              <a href="mailto:eko_parasetayo@pt-sultanagrolasteri.id" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
-                <Mail className="w-4 h-4" />
-                eko_parasetayo@pt-sultanagrolasteri.id
-              </a>
-              <a href="mailto:irawanarif@pt-sultanagrolasteri.id" className="flex items-center gap-3 text-slate-300 text-sm hover:text-white transition-colors">
-                <Mail className="w-4 h-4" />
-                irawanarif@pt-sultanagrolasteri.id
-              </a>
             </div>
           </div>
         </motion.div>

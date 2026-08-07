@@ -66,6 +66,7 @@ const productDescriptions = [
 
 const imageOverrides: Record<string, string> = {
   "Traditional Basmati Rice": "https://res.cloudinary.com/qz5m8bhg/image/upload/v1786048539/traditionl_rice_s4pxah.jpg",
+  Antebella: "https://res.cloudinary.com/qz5m8bhg/image/upload/v1785946249/antebella-bg_hsz5d8.png",
   "Long Grain Rice": "https://res.cloudinary.com/qz5m8bhg/image/upload/v1786048539/long_grain_wsgptc.jpg",
   "Spread Cream": "https://res.cloudinary.com/qz5m8bhg/image/upload/v1786048539/spreadcream_afjgrk.jpg",
   "Cooking Cream": "https://res.cloudinary.com/qz5m8bhg/image/upload/v1786048539/cokkincream_enh1yh.jpg",

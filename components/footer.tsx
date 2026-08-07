@@ -23,12 +23,12 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-6">
               <Image
                 src="https://res.cloudinary.com/qz5m8bhg/image/upload/v1785932694/sal-logo_jxjujr.png"
-                alt="PT. Sultana Agro Lestari"
+                alt="Pt sultanagrolasteri"
                 width={48}
                 height={48}
-                className="w-12 h-12 rounded-full object-cover"
+                className="w-12 h-12"
               />
-              <h3 className="text-xl font-bold text-white">PT. SULTANA AGRO LESTARI</h3>
+              <h3 className="text-xl font-bold text-white">Pt sultanagrolasteri</h3>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed mb-4">
               Supplying Excellence, Delivering Quality since 2020.
@@ -80,7 +80,7 @@ export function Footer() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4"
         >
-          <p className="text-sm text-slate-500">© 2026 PT. Sultana Agro Lestari. All rights reserved.</p>
+          <p className="text-sm text-slate-500">© 2026 Pt sultanagrolasteri. All rights reserved.</p>
           <p className="text-sm text-slate-500">Supplying Excellence, Delivering Quality</p>
         </motion.div>
       </div>

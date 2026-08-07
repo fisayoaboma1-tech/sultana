@@ -10,11 +10,11 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: "PT. Sultana Agro Lestari | Premium Food Distributor Indonesia",
-  description: "PT. Sultana Agro Lestari is a premium food distributor in Indonesia committed to trusted quality, global sourcing, and dependable service.",
+  title: "PT SULTANAGRO LESTARI | Premium Food Distributor Indonesia",
+  description: "PT SULTANAGRO LESTARI is a premium food distributor in Indonesia committed to trusted quality, global sourcing, and dependable service.",
   generator: "v0.app",
   icons: {
-    icon: "https://res.cloudinary.com/qz5m8bhg/image/upload/v1785932694/sal-logo_jxjujr.png",
+    icon: "/logo.svg",
   },
 }
 

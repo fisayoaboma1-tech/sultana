@@ -10,7 +10,7 @@ const updates = [
   {
     title: "New supplier partnership announced",
     date: "August 2026",
-    summary: "PT. Sultana Agro Lestari has partnered with a new international distributor to expand premium rice and dairy imports.",
+    summary: "Pt sultanagrolasteri has partnered with a new international distributor to expand premium rice and dairy imports.",
   },
   {
     title: "Warehouse capacity upgraded",
@@ -47,7 +47,7 @@ export default function UpdatesPage() {
                 Company Updates
               </h1>
               <p className="mt-4 max-w-2xl mx-auto text-sm sm:text-base text-slate-600 leading-relaxed">
-                Latest news and announcements from PT. Sultana Agro Lestari.
+                Latest news and announcements from Pt sultanagrolasteri.
               </p>
             </motion.div>
 

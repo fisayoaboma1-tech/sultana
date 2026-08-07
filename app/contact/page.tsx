@@ -107,8 +107,6 @@ export default function ContactPage() {
                     <Phone className="w-4 h-4" />
                     Send Message
                   </button>
-
-                  <p className="text-sm text-slate-500 mt-2 sm:mt-0">Or email us directly at <a className="text-cyan-700 underline" href="mailto:info@sultanaagro.co.id">info@sultanaagro.co.id</a></p>
                 </div>
               </form>
             </motion.div>

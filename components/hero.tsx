@@ -169,7 +169,7 @@ export function Hero() {
               <div className="relative z-10 flex items-center justify-center h-full p-10">
                 <motion.img
                   src="https://res.cloudinary.com/qz5m8bhg/image/upload/v1785932694/sal-logo_jxjujr.png"
-                  alt="PT. Sultana Agro Lestari"
+                  alt="Pt sultanagrolasteri"
                   className="relative w-full max-w-[10rem] sm:max-w-sm h-auto drop-shadow-[0_20px_60px_rgba(34,211,238,0.15)]"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}

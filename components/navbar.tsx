@@ -70,19 +70,16 @@ export function Navbar({ forceGlass = false, homepage = false }: { forceGlass?: 
         <a href="#" className="flex items-center gap-3">
           <motion.img
             src="https://res.cloudinary.com/qz5m8bhg/image/upload/v1785932694/sal-logo_jxjujr.png"
-            alt="PT. Sultana Agro Lestari"
+            alt="Pt sultanagrolasteri"
             style={{ height: logoHeight }}
             className="w-auto"
           />
           <motion.span
-            className="hidden md:block font-semibold text-[0.72rem] sm:text-[0.8rem] lg:text-sm tracking-[0.2em] uppercase"
+            className="font-semibold text-[0.55rem] sm:text-[0.6rem] md:text-[0.72rem] lg:text-sm tracking-[0.12em] md:tracking-[0.2em]"
             style={{ color: navTextColor }}
           >
-            <span className="block text-white/95 drop-shadow-[0_0_12px_rgba(255,255,255,0.18)]">
-              PT. SULTANA
-            </span>
-            <span className="block bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 bg-clip-text text-transparent font-bold tracking-[0.24em]">
-              AGRO LESTARI
+            <span className="block">
+              Pt sultanagrolasteri
             </span>
           </motion.span>
         </a>

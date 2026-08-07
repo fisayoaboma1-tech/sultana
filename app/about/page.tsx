@@ -75,7 +75,7 @@ export default function About() {
                 ESTABLISHED 2020
               </span>
               <h1 className="mt-6 text-4xl sm:text-5xl font-black text-slate-900">
-                PT. SULTANA AGRO LESTARI
+                Pt sultanagrolasteri
               </h1>
               <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
                 Premium Food Distributor Indonesia with trusted quality, global sourcing, and dependable service.
@@ -101,7 +101,7 @@ export default function About() {
                   </h2>
                   <div className="space-y-6 text-slate-600 leading-relaxed">
                     <p>
-                      PT. Sultana Agro Lestari is a premium food distributor in Indonesia, committed to bringing high-quality food products to markets across retail, wholesale, and foodservice sectors.
+                      Pt sultanagrolasteri is a premium food distributor in Indonesia, committed to bringing high-quality food products to markets across retail, wholesale, and foodservice sectors.
                     </p>
                     <p>
                       We specialize in sourcing premium ingredients and trusted food solutions from reliable global suppliers, with a strong focus on consistency, quality, and value for our partners.
@@ -122,7 +122,7 @@ export default function About() {
                   <div className="rounded-3xl overflow-hidden shadow-2xl">
                     <Image
                       src="https://res.cloudinary.com/qz5m8bhg/image/upload/v1785988905/office_bkzhiw.jpg"
-                      alt="PT. Sultana Agro Lestari Building"
+                      alt="PT SULTANAGRO LESTARI Building"
                       width={1200}
                       height={800}
                       className="w-full h-auto object-cover"
